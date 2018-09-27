@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+	<class name="com.one.to.many.xml.Student" table="STUDENT">
+		<id name="id" type="int">
+			<column name="Id">
+			</column>
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="name" type="string">
+			<column name="NAME" length="20" not-null="true"></column>
+		</property>
+		<many-to-one name="college" class="com.one.to.many.xml.College">
+			<column name="COLLAGE_Id"></column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>
