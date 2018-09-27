@@ -8,6 +8,8 @@ import org.hibernate.cfg.Configuration;
 import com.com.one.to.one.anno.MyCountry;
 import com.com.one.to.one.anno.MyOwner;
 import com.connect.Connect;
+import com.one.to.many.xml.College;
+import com.one.to.many.xml.Student;
 import com.one.to.one.xml.Country;
 import com.one.to.one.xml.Owner;
 
@@ -25,7 +27,24 @@ public class Main {
 		///////////////////////// one-to-one xml mapping
 		// saveOwner();
 		///////////////////////// one-to-one using annotaion mapping
-		saveMyOwner();
+		// saveMyOwner();
+		addCollage();
+
+	}
+
+	private static void addCollage() {
+		College college = new College();
+		college.setName("IIPS");
+		for (int i = 0; i < 5; i++) {
+			Student student = new Student();
+			student.setName("krishna  " + i);
+			student.setCollege(college);
+			college.getStudents().add(student);
+		}
+		Session session = Connect.SF().openSession();
+		Transaction transaction = session.beginTransaction();
+		session.save(college);
+		transaction.commit();
 
 	}
 
