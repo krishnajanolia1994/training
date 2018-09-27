@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+	<class name="com.one.to.many.xml.College" table="COLLEGE">
+		<id name="id" type="int">
+			<column name="COLLAGE_Id">
+			</column>
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="name" type="string">
+			<column name="NAME" length="20" not-null="true"></column>
+		</property>
+		<list name="students" table="STUDENT" lazy="true" inverse="true" cascade="save-update">
+			<key>
+				<column name="COLLAGE_Id"></column>
+			</key>
+			<list-index column="idx"></list-index>
+			<one-to-many class="com.one.to.many.xml.Student"></one-to-many>
+		</list>
+	</class>
+</hibernate-mapping>
