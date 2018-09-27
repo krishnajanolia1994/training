@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+	<class name="com.one.to.one.xml.Owner" table="Owner">
+		<id name="id" type="int">
+			<column name="Id">
+			</column>
+			<generator class="native"></generator>
+		</id>
+		<property name="name" type="string">
+			<column name="NAME" length="20" not-null="true"></column>
+		</property>
+		<one-to-one name="country" class="com.one.to.one.xml.Country"
+			cascade="save-update"></one-to-one>
+	</class>
+</hibernate-mapping>
