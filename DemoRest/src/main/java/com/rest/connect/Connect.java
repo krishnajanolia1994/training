@@ -10,7 +10,8 @@ public class Connect {
 	}
 
 	public static SessionFactory SF() {
-		Configuration configuration = new Configuration().configure().addAnnotatedClass(Pojo.class);
+		Configuration configuration = new Configuration().configure().addAnnotatedClass(Pojo.class).
+			addAnnotatedClass(School.class).addAnnotatedClass(Teacher.class);
 		return configuration.buildSessionFactory();
 	}
 }
