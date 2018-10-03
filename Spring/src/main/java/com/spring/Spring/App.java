@@ -79,6 +79,12 @@ public class App
     	ApplicationContext applicationContext3=new AnnotationConfigApplicationContext(MyConfiguration.class);
     	JavaConfigDemo configDemo=(JavaConfigDemo) applicationContext3.getBean("javaConfigDemo");
     	configDemo.show();
+	    
+	    
+	/////////////////////////////////////////////////////////////////////////////////////////////
+	    //////////////////////////////////// line of code to demenstrate aspact oriented programmin///////////
+	Demo demo=(Demo) applicationContext.getBean("demo");
+        demo.show();
     	
     }
 }
